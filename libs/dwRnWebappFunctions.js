@@ -1,5 +1,5 @@
 /**
- * @author : 노원상(artisthong@dongwha.com)
+ * @author : 노원상(ws.noh@dongwha.com)
  * @date : 2025.04.10 13:51
  * @content
  *      웹앱용, 웹상에서 네이티브 메소드 호출 브릿지
