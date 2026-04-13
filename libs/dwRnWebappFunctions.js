@@ -56,8 +56,10 @@
 
     window.DWAPI = {
       post: function (arr, _cb) {
+        console.log("📤 DWAPI.post 호출:", arr);
         postMessageFunc(arr).then(
           function (res) {
+            console.log("✅ 응답 받음:", res);
             if (typeof _cb == "function") {
               try {
                 _cb(JSON.parse(res));
@@ -67,6 +69,7 @@
             }
           },
           function (err) {
+            console.log("❌ 에러:", err);
             if (typeof _cb == "function") {
               try {
                 _cb(JSON.parse(err));
@@ -79,6 +82,8 @@
       },
       postMessage: postMessageFunc,
       returnedMessage: function (name, data, err) {
+        console.log("return name", name);
+        console.log("return data", data);
         if (promises[name]) {
           if (err) {
             promises[name].reject(data);
@@ -96,6 +101,7 @@
      * 화면단에 onDWPushDeepLinkProc 함수를 선언하여 딥링크 처리
      */
     window.onRecvNotification = function (data) {
+      console.log("push data", data);
       var dataExt = "";
       if (data.EXT) {
         dataExt = data.EXT;
